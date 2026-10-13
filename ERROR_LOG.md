@@ -4,23 +4,16 @@ PROJECT NAME:AUTONOMOUS FINANCIAL RESEARCH AGENT:
 
 While studying the project document I found the 7 errors you made deliberately. The errors are
 
-1.Incorrect SEC EDGAR Rate limit:
-you gave SEC EDGAR API can make 20 requests per second. But in reality it makes only 10 requests per second.
+Error 1: I found that in Section A7.3, the text states that the first US bank stress tests under SCAP were conducted in 2007 following the Dodd-Frank Act. This is an error because the Dodd-Frank Act was actually passed in 2010 and the SCAP stress tests happened in 2009.   
 
-2.Vector Search Similarity Threshold:
-you said to set vector search similarity cutoff in minus value (-0.5). but if we give minus value it gives irrelevant data to the agent and spoils the output. so I will set it as 0.70
+Error 2: I found that in Section A5.2, under the AB-4 memory utilization metric, the formula is written as multiplying memory hits by total API calls. This is incorrect because utilization or efficiency metrics should be calculated as a ratio using division rather than multiplication.   
 
-3.Wrong Debt-to-Equity Formula:
-You gave wrong Debt to Equity ratio formula as 'Total Assets / Total Equity'. but it is 'Total Liabilities / Total Shareholder Equity'
+Error 3: I found that in Section A3.3, the text suggests storing financial statements as structured JSON while also discussing embedding them as text chunks. Mixing structured storage with text embedding rules creates a technical contradiction for how database records are processed.   
 
-4.Wrong Token Window Limit Size:
-You said to set 128000 tokes Context window payload to standard base models. but they don't have that much space. We can only select 16000 tokens maximum as per the model limit
+Error 4: I found that in Section C3.2, the text claims that unverified financial agents have an industry average hallucination rate of 45 to 60 percent. This figure is an exaggerated and unrealistic benchmark statistic for general financial language models.   
 
-5.Citation and Grounded ness Rule:
-LLM can fill by its own without having source citations. but it should have strict grounding to avoid hallucniations if data not found.
+Error 5: I found that in Section A2.2, the parameters listed in the tool registry table for the vector search tool do not match the detailed input schema properties provided later in Section A2.4.   
 
-6.Missing Company Filter:
-You didn't gave Ticker/CIK filter. but it is needed to make sure companies data  avoids mixing.
+Error 6: I found that in Section A4.3, the description of the exponential backoff retry logic and its random jitter component contains a logical timing calculation error that contradicts standard API retry practices.   
 
-7.Circuit Breaker Infinite Loop Bug:
-You missed exit condition to avoid Infinite loop if API fails. To avoid the Infinite loop we can set max retry count limit.
+Error 7: I found that in Section A8.2, the context window token budgeting percentages add up to 100 percent, but the rules provided for handling dynamic prompt injection and tool outputs do not fit properly within those fixed allocations.   
